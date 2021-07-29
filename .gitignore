@@ -4,3 +4,8 @@ core.python*
 env.py
 __pycache__/
 *.py[cod]
+Lib/
+Scripts/
+Include/
+HN Scraper Flowchart.drawio
+HN Scraper Flowchart.png
