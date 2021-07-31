@@ -12,6 +12,24 @@ class Posts:
     def __init__(self, html):
         self.html = html
 
-    def get_titles(self):
+    def get_info(self):
         html_titles = self.html.find_all(class_="storylink")
-        return [title.text for title in html_titles]
+        html_ages = self.html.find_all(class_="age")
+
+        li = []
+        for i in range(30):
+            di = {}
+            di["title"] = html_titles[i].text
+            di["age"] = html_ages[i].text
+            li.append(di)
+
+        return li
+
+    def print_info(self, count):
+        info = self.get_info()
+        for i in range(count):
+            print(info[i]["title"])
+            print(info[i]["age"] + "\n")
+
+
+xx = Posts(trending_html)
