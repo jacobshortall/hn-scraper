@@ -20,6 +20,7 @@ class Posts:
         for i in range(30):
             di = {}
             di["title"] = html_titles[i].text
+            di["link"] = html_titles[i]["href"]
             di["age"] = html_ages[i].text
             li.append(di)
 
@@ -28,8 +29,14 @@ class Posts:
     def print_info(self, count):
         info = self.get_info()
         for i in range(count):
-            print(info[i]["title"])
-            print(info[i]["age"] + "\n")
+            print(
+                f"""
+                {i+1}) Title: {info[i]["title"]}
+                Link: {info[i]["link"]}
+                Posted: {info[i]["age"]}
+                """
+            )
 
 
 xx = Posts(trending_html)
+xx.print_info(3)
