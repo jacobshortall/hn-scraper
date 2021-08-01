@@ -23,20 +23,35 @@ class Posts:
             di["link"] = html_titles[i]["href"]
             di["age"] = html_ages[i].text
             li.append(di)
-
         return li
+
+    def request_more(self):
+        user_ans = input("Do you want to see more posts? (yes/no): ")
+        if user_ans == "no":
+            return False
+        return int(input("Amount: "))
 
     def print_info(self, count):
         info = self.get_info()
-        for i in range(count):
-            print(
-                f"""
-                {i+1}) Title: {info[i]["title"]}
-                Link: {info[i]["link"]}
-                Posted: {info[i]["age"]}
-                """
-            )
+        shown_posts = 0
+        to_show = count
+
+        while True:
+            for i in info[shown_posts : shown_posts + to_show]:
+                print(
+                    f"""
+                    {info.index(i) + 1}) Title: {i["title"]}
+                    Link: {i["link"]}
+                    Posted: {i["age"]}
+                    """
+                )
+
+            # Asks user if they want to see more items
+            user_ans = self.request_more()
+            if not user_ans:
+                break
+            shown_posts += to_show
+            to_show = user_ans
 
 
 xx = Posts(trending_html)
-xx.print_info(3)
