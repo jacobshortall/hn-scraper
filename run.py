@@ -26,10 +26,10 @@ class Posts:
         return li
 
     def request_more(self):
-        user_ans = input("Do you want to see more posts? (yes/no): ")
+        user_ans = input("Do you want to see more posts? (yes/no):\n")
         if user_ans == "no":
             return False
-        return int(input("Amount: "))
+        return int(input("Amount:\n"))
 
     def print_info(self, count):
         info = self.get_info()
