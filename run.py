@@ -55,3 +55,4 @@ class Posts:
 
 
 xx = Posts(trending_html)
+xx.print_info(1)
