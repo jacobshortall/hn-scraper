@@ -76,5 +76,19 @@ def validate_choice(prompt, option_1, option_2):
                 "Invalid input! Please make sure all input is correct and in lowercase.\n")
 
 
+def validate_count():
+    """Get number from 1-30 from user, checking input is valid and returning 
+    number if so."""
+
+    while True:
+        try:
+            count = int(input("How many posts do you want to see?\n"))
+            if 1 <= count <= 30:
+                return count
+            print("Please enter a number between 1 and 30.")
+        except ValueError:
+            print("Please enter a number.")
+
+
 xx = Posts(trending_html)
 xx.print_info(1)
