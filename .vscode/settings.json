@@ -22,5 +22,7 @@
    "workbench.colorTheme": "Default Dark+",
    "editor.defaultFormatter": "HookyQR.beautify",
    "editor.formatOnSave": true,
-   "python.linting.mypyEnabled": false
+   "python.linting.mypyEnabled": false,
+   "editor.wordWrap": "wordWrapColumn",
+   "diffEditor.wordWrap": "on"
 }

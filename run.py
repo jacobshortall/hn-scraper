@@ -13,8 +13,8 @@ class Posts:
         self.html = html
 
     def get_info(self):
-        """Fetch post data from given HTML and return a list containing 
-        a dictionary for each post."""
+        """Fetch post data from given HTML and return a list containing a 
+        dictionary for each post."""
 
         html_titles = self.html.find_all(class_="storylink")
         html_ages = self.html.find_all(class_="age")
@@ -31,14 +31,15 @@ class Posts:
     def request_more(self):
         """Ask user if they want to view more posts and, if so, how many."""
 
-        user_ans = input("Do you want to see more posts? (yes/no):\n")
-        if user_ans == "no":
+        user_input = validate_choice(
+            "Do you want to see more posts? (yes/no):\n", "yes", "no")
+        if user_input == "no":
             return False
         return int(input("Amount:\n"))
 
     def print_info(self, count):
-        """Print initially requested post information to the terminal and ask the user
-        if they want to view more posts using request_more function."""
+        """Print initially requested post information to the terminal and ask 
+        the user if they want to view more posts using request_more function."""
 
         info = self.get_info()
         shown_posts = 0
@@ -60,6 +61,19 @@ class Posts:
                 break
             shown_posts += to_show
             to_show = user_ans
+
+
+def validate_choice(prompt, option_1, option_2):
+    """Validate user input for a question with 2 possible answers, alerting 
+    them if input is somehow invalid."""
+
+    while True:
+        user_input = input(prompt)
+        if user_input == option_1 or user_input == option_2:
+            return user_input
+        else:
+            print(
+                "Invalid input! Please make sure all input is correct and in lowercase.\n")
 
 
 xx = Posts(trending_html)
