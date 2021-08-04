@@ -87,8 +87,8 @@ def validate_count():
                 return count
             print("Please enter a number between 1 and 30.")
         except ValueError:
-            print("Please enter a number.")
+            print("\nPlease enter a number.\n")
 
 
 xx = Posts(trending_html)
-xx.print_info(1)
+xx.print_info(validate_count())
