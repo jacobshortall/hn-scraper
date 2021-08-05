@@ -91,4 +91,17 @@ def validate_count():
 
 
 def main():
-    print("Welcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
+    """Handle greeting the user, calling all functions and running the 
+    application."""
+
+    print(
+        "Welcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
+
+    post_type = validate_choice(
+        "What posts do you want to see? (trending/newest)\n", "trending", "newest")
+    if post_type == "trending":
+        posts = Posts(trending_html)
+    else:
+        posts = Posts(newest_html)
+
+    posts.print_info(validate_count())
