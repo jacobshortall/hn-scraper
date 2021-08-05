@@ -105,3 +105,7 @@ def main():
         posts = Posts(newest_html)
 
     posts.print_info(validate_count())
+
+
+if __name__ == "__main__":
+    main()
