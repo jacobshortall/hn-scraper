@@ -90,5 +90,5 @@ def validate_count():
             print("\nPlease enter a number.\n")
 
 
-xx = Posts(trending_html)
-xx.print_info(validate_count())
+def main():
+    print("Welcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
