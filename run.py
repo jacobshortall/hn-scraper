@@ -28,14 +28,14 @@ class Posts:
             li.append(di)
         return li
 
-    def request_more(self):
+    def request_more(self, available_posts):
         """Ask user if they want to view more posts and, if so, how many."""
 
         user_input = validate_choice(
             "Do you want to see more posts? (yes/no):\n", "yes", "no")
         if user_input == "no":
             return False
-        return int(input("Amount:\n"))
+        return validate_count(available_posts)
 
     def print_info(self, count):
         """Print initially requested post information to the terminal and ask 
@@ -56,10 +56,10 @@ class Posts:
                 )
 
             # Asks user if they want to see more items
-            user_ans = self.request_more()
+            shown_posts += to_show
+            user_ans = self.request_more(30 - shown_posts)
             if not user_ans:
                 break
-            shown_posts += to_show
             to_show = user_ans
 
 
@@ -76,14 +76,14 @@ def validate_choice(prompt, option_1, option_2):
                 "Invalid input! Please make sure all input is correct and in lowercase.\n")
 
 
-def validate_count():
+def validate_count(available_posts):
     """Get number from 1-30 from user, checking input is valid and returning 
     number if so."""
 
     while True:
         try:
             count = int(input("How many posts do you want to see?\n"))
-            if 1 <= count <= 30:
+            if 1 <= count <= available_posts:
                 return count
             print("Please enter a number between 1 and 30.")
         except ValueError:
@@ -104,7 +104,7 @@ def main():
     else:
         posts = Posts(newest_html)
 
-    posts.print_info(validate_count())
+    posts.print_info(validate_count(30))
 
 
 if __name__ == "__main__":
