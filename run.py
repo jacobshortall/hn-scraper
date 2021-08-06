@@ -77,15 +77,15 @@ def validate_choice(prompt, option_1, option_2):
 
 
 def validate_count(available_posts):
-    """Get number from 1-30 from user, checking input is valid and returning 
-    number if so."""
+    """Get positive number from user, checking input is below maximum available 
+    posts and returning number if so."""
 
     while True:
         try:
             count = int(input("How many posts do you want to see?\n"))
             if 1 <= count <= available_posts:
                 return count
-            print("Please enter a number between 1 and 30.")
+            print(f"Please enter a number between 1 and {available_posts}.")
         except ValueError:
             print("\nPlease enter a number.\n")
 
