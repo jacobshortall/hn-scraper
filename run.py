@@ -55,8 +55,12 @@ class Posts:
                     """
                 )
 
-            # Asks user if they want to see more items
             shown_posts += to_show
+            if shown_posts == 30:
+                print("No more posts to show.")
+                break
+
+            # Asks user if they want to see more items
             user_ans = self.request_more(30 - shown_posts)
             if not user_ans:
                 break
