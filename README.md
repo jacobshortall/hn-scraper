@@ -20,6 +20,8 @@ This application runs in Code Institute's mock terminal on Heroku.
 
 ## Data Model
 
-The model for this application consists of a Posts class. The class is instantiated with either the parsed HTML for the front page of Hacker News or the first page of newest posts.  
+The model for this application consists of a Posts class. This class is instantiated with either the parsed HTML for the front page of Hacker News or the first page of newest posts.  
 
 The get_info() method within this class is responsible for retrieving the post data from the parsed HTML. This method creates a dictionary for each post. Each dictionary stores the post title, link, and date posted. These dictionaries are then all stored in a single list that can be looped through to retrieve a requested amount of post data.
+
+The Posts class also has additional methods that handle user requests for more posts and printing initially requested post data.
