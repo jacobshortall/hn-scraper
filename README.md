@@ -18,6 +18,27 @@ This application runs in Code Institute's mock terminal on Heroku.
 
 [Logic Flowchart](<readme/HN Scraper Flowchart.png>)
 
+## Features
+
+### Existing Features
+
+-   View trending posts.
+    -   Users have the ability to view a stream of posts from the front page of Hacker News.
+-   View newest posts.
+    -   Users have the ability to view a stream of posts from the most recent posts page.
+-   Post title.
+    -   Users are shown the title of each post requested.
+-   Post link.
+    -   Users are shown the link to the article of each post. This link can be copied in the Code Institute terminal or clicked on in some other local terminals.
+- Post age.
+    -   Users are shown how long ago the post was created.
+-   Request certain amount of posts.
+    -   Users have the ability to instruct how many posts they want to be printed to the terminal.
+-   Request more from post stream.
+    -   After the initially requested posts are shown, the user will be prompted to see if they want to view more posts from the given category (trending/newest), if there are any left.
+-   Post count.
+    -   The user is shown how many posts are available to be shown. There are a maximum of 30 for each of the two categories, due to this being the amount shown on a full page of Hacker News. This number will go down as the user requests more posts.
+
 ## Data Model
 
 The model for this application consists of a Posts class. This class is instantiated with either the parsed HTML for the front page of Hacker News or the first page of newest posts.  

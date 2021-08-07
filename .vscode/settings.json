@@ -24,5 +24,9 @@
    "editor.formatOnSave": true,
    "python.linting.mypyEnabled": false,
    "editor.wordWrap": "wordWrapColumn",
-   "diffEditor.wordWrap": "on"
+   "diffEditor.wordWrap": "on",
+   "cSpell.words": [
+      "Combinator's",
+      "combinator"
+   ]
 }
