@@ -14,7 +14,7 @@ class Posts:
 
     def get_info(self):
         """Fetch post data from given HTML and return a list containing a 
-        dictionary for each post."""
+        dictionary for each post (30 posts total)."""
 
         html_titles = self.html.find_all(class_="storylink")
         html_ages = self.html.find_all(class_="age")
