@@ -88,11 +88,14 @@ def validate_count(available_posts):
         try:
             count = int(
                 input(f"How many posts do you want to see? ({available_posts} available)\n"))
+
             if 1 <= count <= available_posts:
                 return count
+
             if available_posts == 1:
                 print("Only 1 post left to show.")
                 continue
+
             print(f"Please enter a number between 1 and {available_posts}.")
         except ValueError:
             print("\nPlease enter a number.\n")
