@@ -30,7 +30,7 @@ This application runs in Code Institute's mock terminal on Heroku.
     -   Users are shown the title of each post requested.
 -   Post link.
     -   Users are shown the link to the article of each post. This link can be copied in the Code Institute terminal or clicked on in some other local terminals.
-- Post age.
+-   Post age.
     -   Users are shown how long ago the post was created.
 -   Request certain amount of posts.
     -   Users have the ability to instruct how many posts they want to be printed to the terminal.
@@ -38,6 +38,12 @@ This application runs in Code Institute's mock terminal on Heroku.
     -   After the initially requested posts are shown, the user will be prompted to see if they want to view more posts from the given category (trending/newest), if there are any left.
 -   Post count.
     -   The user is shown how many posts are available to be shown. There are a maximum of 30 for each of the two categories, due to this being the amount shown on a full page of Hacker News. This number will go down as the user requests more posts.
+
+### Features to Implement in the Future
+
+-   Option to sort posts by votes.
+-   Unlimited post stream.
+-   Display additional post data.
 
 ## Data Model
 
