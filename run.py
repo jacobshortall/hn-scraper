@@ -106,7 +106,7 @@ def main():
     application."""
 
     print(
-        "Welcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
+        "\nWelcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
 
     post_type = validate_choice(
         "What posts do you want to see? (trending/newest)\n", "trending", "newest")
@@ -116,6 +116,8 @@ def main():
         posts = Posts(newest_html)
 
     posts.print_info(validate_count(30))
+
+    print("\nThank you for using the Hacker News Web Scraper!")
 
 
 if __name__ == "__main__":
