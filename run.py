@@ -109,7 +109,11 @@ def validate_http():
 
 def main():
     """Handle greeting the user, calling all functions and running the 
-    application."""
+    application. Also handle validating HTTP for required links."""
+
+    if not validate_http():
+        print("We're having some trouble connecting to Hacker News at the moment, please try again later.")
+        return
 
     print(
         "\nWelcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
