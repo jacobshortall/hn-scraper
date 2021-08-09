@@ -2,10 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 # Preparing and parsing html data using bs4 for use with Posts class
-trending_response = requests.get("https://news.ycombinator.com/news").text
-newest_response = requests.get("https://news.ycombinator.com/newest").text
-trending_html = BeautifulSoup(trending_response, "html.parser")
-newest_html = BeautifulSoup(newest_response, "html.parser")
+trending_response = requests.get("https://news.ycombinator.com/news")
+newest_response = requests.get("https://news.ycombinator.com/newest")
+trending_html = BeautifulSoup(trending_response.text, "html.parser")
+newest_html = BeautifulSoup(newest_response.text, "html.parser")
 
 
 class Posts:
@@ -99,6 +99,12 @@ def validate_count(available_posts):
             print(f"Please enter a number between 1 and {available_posts}.")
         except ValueError:
             print("\nPlease enter a number.\n")
+
+
+def validate_http():
+    """Check HTTP status code of both required links for app to function"""
+
+    return trending_response.status_code == 200 and newest_response.status_code == 200
 
 
 def main():
