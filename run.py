@@ -87,7 +87,7 @@ def validate_count(available_posts):
     while True:
         try:
             count = int(
-                input(f"How many posts do you want to see? ({available_posts} available)\n"))
+                input(f"\nHow many posts do you want to see? ({available_posts} available)\n"))
 
             if 1 <= count <= available_posts:
                 return count
