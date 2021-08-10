@@ -52,3 +52,24 @@ The model for this application consists of a Posts class. This class is instanti
 The get_info() method within this class is responsible for retrieving the post data from the parsed HTML. This method creates a dictionary for each post. Each dictionary stores the post title, link, and date posted. These dictionaries are then all stored in a single list that can be looped through to retrieve a requested amount of post data.
 
 The Posts class also has additional methods that handle user requests for more posts and printing initially requested post data.
+
+## Technologies
+
+### Languages Used
+
+-   Python
+
+### Frameworks and Libraries Used
+
+-   [Git](https://git-scm.com/)
+    -   Git was used for version control, using the Git Bash terminal for Windows to commit and push code.
+-   [Github](https://github.com/)
+    -   Github is used to store the project after pushing to Git. 
+-   [Heroku](https://dashboard.heroku.com/login)
+    -   Heroku is used to host the application in a mock terminal.
+-   [Diagrams.net](https://app.diagrams.net/)
+    - This website was used to make the logic flowchart for the project.
+-   [Requests](https://docs.python-requests.org/en/master/)
+    -   The Python Requests library was used to perform GET requests on the necessary links used in the app.
+-   [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+    -   Beautiful Soup is a Python module used for scraping data from websites. It was used in this project to parse the data from the GET requests and then to scrape the required information from the parsed data.
