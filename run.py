@@ -73,7 +73,7 @@ def main():
     application. Also handle validating HTTP for required links."""
 
     if not validate_http(trending_response, newest_response):
-        print("We're having some trouble connecting to Hacker News at the moment, please try again later.")
+        print("\nWe're having some trouble connecting to Hacker News at the moment, please try again later.")
         return
 
     print(
