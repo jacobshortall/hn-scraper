@@ -90,3 +90,15 @@ Steps for deployment:
 -   Click the "Connect to Github" button and enter your details.
 -   Search for your repository and select the appropriate one.
 -   You can choose to either manually deploy or enable automatic deploys. In this case, I chose automatic deploys. 
+
+Cloning the repository:
+
+-   Navigate to the project repository.
+-   In the top right, click "Fork" to fork the repo.
+-   After you have your own fork of the repo, click the "Code" button. A dropdown should appear.
+-   Copy the SSH key and navigate to your local terminal. 
+-   Clone the repo using the below command:
+
+```
+$ git clone "SSH KEY"
+```
