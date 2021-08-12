@@ -16,7 +16,7 @@ This application runs in Code Institute's mock terminal on Heroku.
 -   The user wants to be able to keep feeding through posts after the initial ones are displayed. 
 -   The user's input should be validated at all stages.
 
-[Logic Flowchart](<readme/HN Scraper Flowchart.png>)
+[Logic Flowchart](<readme/HN Scraper Flowchart.jpeg>)
 
 ## Features
 
