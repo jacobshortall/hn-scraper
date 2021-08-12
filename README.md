@@ -73,3 +73,20 @@ The Posts class also has additional methods that handle user requests for more p
     -   The Python Requests library was used to perform GET requests on the necessary links used in the app.
 -   [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
     -   Beautiful Soup is a Python module used for scraping data from websites. It was used in this project to parse the data from the GET requests and then to scrape the required information from the parsed data.
+
+## Deployment
+
+This project is deployed to Heroku and uses the Code Institute mock terminal.
+
+Steps for deployment:
+
+-   Ensure all code is pushed to Github. 
+-   Navigate to Heroku, login, and click "create a new app".
+-   Enter a unique name for the application, and select the appropriate region.
+-   Head over to "Settings" to further customise the deployment.
+-   This project does not require any config vars, so this can be skipped. 
+-   Scroll down and add the required buildpacks. In this case, Python and Node.js are needed. They must be displayed in that order. 
+-   Next, head to the "Deploy" tab and select Github as the deployment method. 
+-   Click the "Connect to Github" button and enter your details.
+-   Search for your repository and select the appropriate one.
+-   You can choose to either manually deploy or enable automatic deploys. In this case, I chose automatic deploys. 
