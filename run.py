@@ -85,6 +85,8 @@ def main():
 
 
 def instantiate_class():
+    """Ask the user what type of posts they wish to view, then create an appropriate instance of the Posts class and return it for use in the main() function."""
+
     post_type = validate_choice(
         "What posts do you want to see? (trending/newest)\n", "trending", "newest")
     if post_type == "trending":
