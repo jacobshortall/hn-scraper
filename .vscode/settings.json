@@ -20,13 +20,13 @@
    },
    "files.autoSave": "off",
    "workbench.colorTheme": "Default Dark+",
-   "editor.defaultFormatter": "HookyQR.beautify",
    "editor.formatOnSave": true,
    "python.linting.mypyEnabled": false,
    "editor.wordWrap": "wordWrapColumn",
    "diffEditor.wordWrap": "on",
    "cSpell.words": [
       "Combinator's",
+      "buildpacks",
       "combinator"
    ]
 }

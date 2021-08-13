@@ -79,16 +79,19 @@ def main():
     print(
         "\nWelcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
 
+    instantiate_class().print_info(validate_count(30))
+
+    print("\nThank you for using the Hacker News Web Scraper!")
+
+
+def instantiate_class():
     post_type = validate_choice(
         "What posts do you want to see? (trending/newest)\n", "trending", "newest")
     if post_type == "trending":
         posts = Posts(trending_html)
     else:
         posts = Posts(newest_html)
-
-    posts.print_info(validate_count(30))
-
-    print("\nThank you for using the Hacker News Web Scraper!")
+    return posts
 
 
 if __name__ == "__main__":
