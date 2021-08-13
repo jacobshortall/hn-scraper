@@ -68,6 +68,18 @@ class Posts:
             to_show = user_ans
 
 
+def instantiate_class():
+    """Ask the user what type of posts they wish to view, then create an appropriate instance of the Posts class and return it for use in the main() function."""
+
+    post_type = validate_choice(
+        "What posts do you want to see? (trending/newest)\n", "trending", "newest")
+    if post_type == "trending":
+        posts = Posts(trending_html)
+    else:
+        posts = Posts(newest_html)
+    return posts
+
+
 def main():
     """Handle greeting the user, calling all functions and running the 
     application. Also handle validating HTTP for required links."""
@@ -82,18 +94,6 @@ def main():
     instantiate_class().print_info(validate_count(30))
 
     print("\nThank you for using the Hacker News Web Scraper!")
-
-
-def instantiate_class():
-    """Ask the user what type of posts they wish to view, then create an appropriate instance of the Posts class and return it for use in the main() function."""
-
-    post_type = validate_choice(
-        "What posts do you want to see? (trending/newest)\n", "trending", "newest")
-    if post_type == "trending":
-        posts = Posts(trending_html)
-    else:
-        posts = Posts(newest_html)
-    return posts
 
 
 if __name__ == "__main__":
