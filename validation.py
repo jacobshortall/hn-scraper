@@ -3,7 +3,7 @@ def validate_choice(prompt, option_1, option_2):
     them if input is somehow invalid."""
 
     while True:
-        user_input = input(prompt)
+        user_input = input(prompt).lower()
         if user_input == option_1 or user_input == option_2:
             return user_input
         else:
