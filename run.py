@@ -81,14 +81,14 @@ def main():
     """Handle greeting the user, calling all functions and running the 
     application. Also handle validating HTTP for required links."""
 
-    if not validate_http(trending_response, newest_response):
-        print("\nWe're having some trouble connecting to Hacker News at the moment, please try again later.")
-        return
-
     print(
         "\nWelcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
 
-    instantiate_class().print_info(validate_count(30))
+    post_choice = validate_choice(
+        "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
+    posts = Posts(post_choice)
+
+    posts.print_info(validate_count(30))
 
     print("\nThank you for using the Hacker News Web Scraper!")
 
