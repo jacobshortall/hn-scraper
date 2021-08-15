@@ -11,6 +11,8 @@ class Posts:
         self.post_type = post_type
 
     def prepare_html(self):
+        """Make get request and prepare parsed HTML using Beautiful Soup object.
+        Returns appropriate html."""
 
         if self.post_type == "trending":
             response = requests.get(trending_url)
