@@ -1,5 +1,9 @@
+"""This module holds all validation functions needed for use with run.py. Each
+function is responsible for validating a different type of data."""
+
+
 def validate_choice(prompt, option_1, option_2):
-    """Validate user input for a question with 2 possible answers, alerting 
+    """Validate user input for a question with 2 possible answers, alerting
     them if input is somehow invalid."""
 
     while True:
@@ -11,7 +15,7 @@ def validate_choice(prompt, option_1, option_2):
 
 
 def validate_count(available_posts):
-    """Get positive number from user, checking input is below maximum available 
+    """Get positive number from user, checking input is below maximum available
     posts and returning number if so."""
 
     while True:
