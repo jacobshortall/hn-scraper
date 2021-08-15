@@ -2,23 +2,32 @@ import requests
 from bs4 import BeautifulSoup
 from validation import validate_choice, validate_count, validate_http
 
-# Preparing and parsing html data using bs4 for use with Posts class
-trending_response = requests.get("https://news.ycombinator.com/news")
-newest_response = requests.get("https://news.ycombinator.com/newest")
-trending_html = BeautifulSoup(trending_response.text, "html.parser")
-newest_html = BeautifulSoup(newest_response.text, "html.parser")
+trending_url = "https://news.ycombinator.com/news"
+newest_url = "https://news.ycombinator.com/newest"
 
 
 class Posts:
-    def __init__(self, html):
-        self.html = html
+    def __init__(self, post_type):
+        self.post_type = post_type
+
+    def prepare_html(self):
+
+        if self.post_type == "trending":
+            response = requests.get(trending_url)
+            html = BeautifulSoup(response.text, "html.parser")
+        else:
+            response = requests.get(newest_url)
+            html = BeautifulSoup(response.text, "html.parser")
+        return html
 
     def get_info(self):
         """Fetch post data from given HTML and return a list containing a 
         dictionary for each post (30 posts total)."""
 
-        html_titles = self.html.find_all(class_="storylink")
-        html_ages = self.html.find_all(class_="age")
+        html = self.prepare_html()
+
+        html_titles = html.find_all(class_="storylink")
+        html_ages = html.find_all(class_="age")
 
         li = []
         for i in range(30):
@@ -66,18 +75,6 @@ class Posts:
             if not user_ans:
                 break
             to_show = user_ans
-
-
-def instantiate_class():
-    """Ask the user what type of posts they wish to view, then create an appropriate instance of the Posts class and return it for use in the main() function."""
-
-    post_type = validate_choice(
-        "What posts do you want to see? (trending/newest)\n", "trending", "newest")
-    if post_type == "trending":
-        posts = Posts(trending_html)
-    else:
-        posts = Posts(newest_html)
-    return posts
 
 
 def main():
