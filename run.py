@@ -7,19 +7,16 @@ newest_url = "https://news.ycombinator.com/newest"
 
 
 class Posts:
-    def __init__(self, post_type):
-        self.post_type = post_type
+    def __init__(self, url):
+        self.url = url
 
     def prepare_html(self):
         """Make get request and prepare parsed HTML using Beautiful Soup object.
-        Returns appropriate html."""
+        Returns html."""
 
-        if self.post_type == "trending":
-            response = requests.get(trending_url)
-            html = BeautifulSoup(response.text, "html.parser")
-        else:
-            response = requests.get(newest_url)
-            html = BeautifulSoup(response.text, "html.parser")
+        response = requests.get(self.url)
+        html = BeautifulSoup(response.text, "html.parser")
+
         return html
 
     def get_info(self):
@@ -88,7 +85,10 @@ def main():
 
     post_choice = validate_choice(
         "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
-    posts = Posts(post_choice)
+    if post_choice == "trending":
+        posts = Posts(trending_url)
+    else:
+        posts = Posts(newest_url)
 
     posts.print_info(validate_count(30))
 
