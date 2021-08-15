@@ -100,5 +100,5 @@ Cloning the repository:
 -   Clone the repo using the below command:
 
 ```
-$ git clone "SSH KEY"
+$ git clone "HTTPS URL"
 ```
