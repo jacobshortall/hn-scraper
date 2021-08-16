@@ -10,20 +10,12 @@ class Posts:
     def __init__(self, url):
         self.url = url
 
-    def prepare_html(self):
-        """Make get request and prepare parsed HTML using Beautiful Soup object.
-        Returns html."""
-
-        response = requests.get(self.url)
-        html = BeautifulSoup(response.text, "html.parser")
-
-        return html
-
     def get_info(self):
         """Fetch post data from given HTML and return a list containing a 
         dictionary for each post (30 posts total)."""
 
-        html = self.prepare_html()
+        response = requests.get(self.url)
+        html = BeautifulSoup(response.text, "html.parser")
 
         html_titles = html.find_all(class_="storylink")
         html_ages = html.find_all(class_="age")
