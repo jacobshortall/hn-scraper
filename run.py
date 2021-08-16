@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from validation import validate_choice, validate_count, validate_http
+from validation import validate_choice, validate_count
 
 trending_url = "https://news.ycombinator.com/news"
 newest_url = "https://news.ycombinator.com/newest"
@@ -11,7 +11,7 @@ class Posts:
         self.url = url
 
     def get_info(self):
-        """Fetch post data from given HTML and return a list containing a 
+        """Fetch post data from given HTML and return a list containing a
         dictionary for each post (30 posts total)."""
 
         response = requests.get(self.url)
@@ -44,7 +44,7 @@ class Printer():
         return validate_count(available_posts)
 
     def print_info(self, count):
-        """Print initially requested post information to the terminal and ask 
+        """Print initially requested post information to the terminal and ask
         the user if they want to view more posts using request_more function."""
 
         shown_posts = 0
@@ -73,11 +73,12 @@ class Printer():
 
 
 def main():
-    """Handle greeting the user, calling all functions and running the 
+    """Handle greeting the user, calling all functions and running the
     application. Also handle validating HTTP for required links."""
 
     print(
-        "\nWelcome to the Hacker News Web Scraper! This tool allows you to view the latest posts from Y Combinator's popular technology news site.\n")
+        "\nWelcome to the Hacker News Web Scraper! This tool allows you to view\n"
+        "the latest posts from Y Combinator's popular technology news site.\n")
 
     post_choice = validate_choice(
         "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
