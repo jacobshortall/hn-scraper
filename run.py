@@ -29,6 +29,11 @@ class Posts:
             li.append(di)
         return li
 
+
+class Printer():
+    def __init__(self, posts):
+        self.posts = posts
+
     def request_more(self, available_posts):
         """Ask user if they want to view more posts and, if so, how many."""
 
@@ -42,15 +47,14 @@ class Posts:
         """Print initially requested post information to the terminal and ask 
         the user if they want to view more posts using request_more function."""
 
-        info = self.get_info()
         shown_posts = 0
         to_show = count
 
         while True:
-            for i in info[shown_posts: shown_posts + to_show]:
+            for i in self.posts[shown_posts: shown_posts + to_show]:
                 print(
                     f"""
-                    {info.index(i) + 1}) Title: {i["title"]}
+                    {self.posts.index(i) + 1}) Title: {i["title"]}
                     Link: {i["link"]}
                     Posted: {i["age"]}
                     """
@@ -82,7 +86,8 @@ def main():
     else:
         posts = Posts(newest_url)
 
-    posts.print_info(validate_count(30))
+    printer = Printer(posts.get_info())
+    printer.print_info(validate_count(30))
 
     print("\nThank you for using the Hacker News Web Scraper!")
 
