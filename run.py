@@ -2,11 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 from validation import validate_choice, validate_count
 
-trending_url = "https://news.ycombinator.com/news"
-newest_url = "https://news.ycombinator.com/newest"
+TRENDING_URL = "https://news.ycombinator.com/news"
+NEWEST_URL = "https://news.ycombinator.com/newest"
 
 
 def get_count(available_posts):
+    """Ask user how many posts they would like to view. Pass input to
+    validate_count() and return count once validated."""
+
     while True:
         count = input(
             f"\nHow many posts do you want to see? ({available_posts} available)\n")
@@ -101,9 +104,9 @@ def main():
     post_choice = validate_choice(
         "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
     if post_choice == "trending":
-        posts = Posts(trending_url)
+        posts = Posts(TRENDING_URL)
     else:
-        posts = Posts(newest_url)
+        posts = Posts(NEWEST_URL)
 
     printer = Printer(posts.get_info())
     printer.print_info(get_count(30))
