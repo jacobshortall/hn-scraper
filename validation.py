@@ -14,25 +14,16 @@ def validate_choice(prompt, option_1, option_2):
             "\nInvalid input! Please make sure all input is correct and in lowercase.\n")
 
 
-def validate_count(available_posts):
+def validate_count(input, available_posts):
     """Get positive number from user, checking input is below maximum available
     posts and returning number if so."""
 
-    while True:
-        try:
-            count = int(
-                input(f"\nHow many posts do you want to see? ({available_posts} available)\n"))
-
-            if 1 <= count <= available_posts:
-                return count
-
-            if available_posts == 1:
-                print("\nOnly 1 post left to show.")
-                continue
-
-            print(f"\nPlease enter a number between 1 and {available_posts}.")
-        except ValueError:
-            print("\nPlease enter a number.")
+    try:
+        count = int(input)
+        if 1 <= count <= available_posts:
+            return True
+    except ValueError:
+        return False
 
 
 def validate_http(trending, newest):

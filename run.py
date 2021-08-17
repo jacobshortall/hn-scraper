@@ -6,6 +6,14 @@ trending_url = "https://news.ycombinator.com/news"
 newest_url = "https://news.ycombinator.com/newest"
 
 
+def get_count(available_posts):
+    while True:
+        count = input(
+            f"\nHow many posts do you want to see? ({available_posts} available)\n")
+        if validate_count(count, available_posts):
+            return int(count)
+
+
 class Posts:
     def __init__(self, url):
         self.url = url
@@ -41,7 +49,7 @@ class Printer():
             "Do you want to see more posts? (yes/no):\n", "yes", "no")
         if user_input == "no":
             return False
-        return validate_count(available_posts)
+        return get_count(available_posts)
 
     def print_info(self, count):
         """Print initially requested post information to the terminal and ask
@@ -88,7 +96,7 @@ def main():
         posts = Posts(newest_url)
 
     printer = Printer(posts.get_info())
-    printer.print_info(validate_count(30))
+    printer.print_info(get_count(30))
 
     print("\nThank you for using the Hacker News Web Scraper!")
 
