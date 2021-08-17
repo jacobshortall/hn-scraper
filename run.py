@@ -10,8 +10,18 @@ def get_count(available_posts):
     while True:
         count = input(
             f"\nHow many posts do you want to see? ({available_posts} available)\n")
-        if validate_count(count, available_posts):
-            return int(count)
+
+        try:
+            if validate_count(count, available_posts):
+                return int(count)
+
+            if available_posts == 1:
+                print("\nOnly 1 post left to show.")
+                continue
+
+            print(f"\nPlease enter a number between 1 and {available_posts}.")
+        except ValueError:
+            print("\nPlease enter a number.")
 
 
 class Posts:

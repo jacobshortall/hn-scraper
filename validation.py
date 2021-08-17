@@ -22,8 +22,9 @@ def validate_count(input, available_posts):
         count = int(input)
         if 1 <= count <= available_posts:
             return True
-    except ValueError:
         return False
+    except ValueError:
+        raise
 
 
 def validate_http(trending, newest):
