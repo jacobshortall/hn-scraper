@@ -40,6 +40,18 @@ def confirm_exit(num):
             quit()
 
 
+def instantiate_class(post_choice):
+    """Return Printer class instantiation using separate instantiation of Posts class"""
+
+    if post_choice == "trending":
+        posts = Posts(NEWEST_URL)
+    else:
+        posts = Posts(TRENDING_URL)
+
+    printer = Printer(posts.get_info())
+    return printer
+
+
 class Posts:
     def __init__(self, url):
         self.url = url
@@ -108,7 +120,7 @@ class Printer():
 
 def main():
     """Handle greeting the user, calling all functions and running the
-    application. Also handle validating HTTP for required links."""
+    application."""
 
     print(
         "\nWelcome to the Hacker News Web Scraper! This tool allows you to view\n"
@@ -116,12 +128,8 @@ def main():
 
     post_choice = validate_choice(
         "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
-    if post_choice == "trending":
-        posts = Posts(TRENDING_URL)
-    else:
-        posts = Posts(NEWEST_URL)
 
-    printer = Printer(posts.get_info())
+    printer = instantiate_class(post_choice)
     printer.print_info(get_count(30))
 
     print("\nThank you for using the Hacker News Web Scraper!")
