@@ -8,7 +8,7 @@ NEWEST_URL = "https://news.ycombinator.com/newest"
 
 def get_count(available_posts):
     """Ask user how many posts they would like to view. Pass input to
-    validate_count() and return count once validated."""
+    validate_count() and return count once validated. If number is 0, ask user if they want to exit program."""
 
     while True:
         user_input = input(
@@ -31,6 +31,8 @@ def get_count(available_posts):
 
 
 def confirm_exit(num):
+    """Check if user input is 0 and, if so, ask user if they wish to exit the program."""
+
     if num == 0:
         i = validate_choice(
             "\nDo you want to exit the program? (yes / no)\n", "yes", "no")
