@@ -20,7 +20,7 @@ def validate_count(user_input, available_posts):
 
     try:
         count = int(user_input)
-        if 1 <= count <= available_posts:
+        if 0 <= count <= available_posts:
             return True
         return False
     except ValueError:
