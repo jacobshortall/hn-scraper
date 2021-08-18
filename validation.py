@@ -11,15 +11,15 @@ def validate_choice(prompt, option_1, option_2):
         if user_input in (option_1, option_2):
             return user_input
         print(
-            "\nInvalid input! Please make sure all input is correct and in lowercase.\n")
+            "\nInvalid input! Please try again.\n")
 
 
-def validate_count(input, available_posts):
+def validate_count(user_input, available_posts):
     """Get positive number from user, checking input is below maximum available
     posts and returning number if so."""
 
     try:
-        count = int(input)
+        count = int(user_input)
         if 1 <= count <= available_posts:
             return True
         return False
