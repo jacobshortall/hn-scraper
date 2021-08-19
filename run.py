@@ -12,7 +12,7 @@ def get_count(available_posts):
 
     while True:
         user_input = input(
-            f"\nHow many posts do you want to see? ({available_posts} available, or enter 0 to exit.)\n")
+            f"\nHow many posts do you want to see? ({available_posts} available, or enter 0 to exit.):\n")
 
         try:
             if validate_count(user_input, available_posts):
@@ -35,7 +35,7 @@ def confirm_exit(num):
 
     if num == 0:
         i = validate_choice(
-            "\nDo you want to exit the program? (yes / no)\n", "yes", "no")
+            "\nDo you want to exit the program? (yes / no):\n", "yes", "no")
         if i == "yes":
             quit()
 
@@ -53,18 +53,22 @@ def instantiate_class(post_choice):
 
 
 def view_more(post_choice):
+    """Ask user if they want to view alternate posts to the ones they have already viewed and display them if so."""
+
     if post_choice == "trending":
         to_view = "newest"
     else:
         to_view = "trending"
 
     user_input = validate_choice(
-        f"Would you like to see the {to_view} posts now? (yes / no)", "yes", "no")
+        f"Would you like to see the {to_view} posts now? (yes / no):\n", "yes", "no")
     if user_input == "yes":
         view_posts(to_view)
 
 
 def view_posts(post_choice):
+    """Return requested posts using user's post choice."""
+
     printer = instantiate_class(post_choice)
     return printer.print_info(get_count(30))
 
@@ -144,7 +148,7 @@ def main():
         "the latest posts from Y Combinator's popular technology news site.\n")
 
     post_choice = validate_choice(
-        "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
+        "What type of posts do you want to see? (trending / newest):\n", "trending", "newest")
 
     view_posts(post_choice)
 
