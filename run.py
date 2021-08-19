@@ -44,12 +44,29 @@ def instantiate_class(post_choice):
     """Return Printer class instantiation using separate instantiation of Posts class"""
 
     if post_choice == "trending":
-        posts = Posts(NEWEST_URL)
-    else:
         posts = Posts(TRENDING_URL)
+    else:
+        posts = Posts(NEWEST_URL)
 
     printer = Printer(posts.get_info())
     return printer
+
+
+def view_more(post_choice):
+    if post_choice == "trending":
+        to_view = "newest"
+    else:
+        to_view = "trending"
+
+    user_input = validate_choice(
+        f"Would you like to see the {to_view} posts now? (yes / no)", "yes", "no")
+    if user_input == "yes":
+        view_posts(to_view)
+
+
+def view_posts(post_choice):
+    printer = instantiate_class(post_choice)
+    return printer.print_info(get_count(30))
 
 
 class Posts:
@@ -129,8 +146,9 @@ def main():
     post_choice = validate_choice(
         "What type of posts do you want to see? (trending / newest)\n", "trending", "newest")
 
-    printer = instantiate_class(post_choice)
-    printer.print_info(get_count(30))
+    view_posts(post_choice)
+
+    view_more(post_choice)
 
     print("\nThank you for using the Hacker News Web Scraper!")
 
