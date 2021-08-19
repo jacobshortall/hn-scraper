@@ -127,7 +127,7 @@ def view_more(post_choice):
         to_view = "trending"
 
     user_input = validate_choice(
-        f"Would you like to see the {to_view} posts now? (yes / no):\n", "yes", "no")
+        f"\nWould you like to see the {to_view} posts now? (yes / no):\n", "yes", "no")
     if user_input == "yes":
         view_posts(to_view)
 
