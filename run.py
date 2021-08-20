@@ -107,15 +107,29 @@ def confirm_exit(num):
 
 
 def instantiate_class(post_choice):
-    """Return Printer class instantiation using separate instantiation of Posts class"""
+    """Return Printer class instantiation using separate instantiation of Posts 
+    class. """
 
     if post_choice == "trending":
         posts = Posts(TRENDING_URL)
     else:
         posts = Posts(NEWEST_URL)
 
+    check_runtime_error(posts)
+
     printer = Printer(posts.get_info())
     return printer
+
+
+def check_runtime_error(posts_class):
+    """If HTTP or Beautiful Soup object causes an error, give user error 
+    message and terminate program."""
+
+    try:
+        posts_class.get_info()
+    except:
+        print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
+        quit()
 
 
 def view_more(post_choice):
