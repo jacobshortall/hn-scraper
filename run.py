@@ -96,16 +96,6 @@ def get_count(available_posts):
             print("\nPlease enter a number.")
 
 
-def confirm_exit(num):
-    """Check if user input is 0 and, if so, ask user if they wish to exit the program."""
-
-    if num == 0:
-        i = validate_choice(
-            "\nDo you want to exit the program? (yes / no):\n", "yes", "no")
-        if i == "yes":
-            quit()
-
-
 def instantiate_class(post_choice):
     """Return Printer class instantiation using separate instantiation of Posts 
     class. """
@@ -121,15 +111,11 @@ def instantiate_class(post_choice):
     return printer
 
 
-def check_runtime_error(posts_class):
-    """If HTTP or Beautiful Soup object causes an error, give user error 
-    message and terminate program."""
+def view_posts(post_choice):
+    """Return requested posts using user's post choice."""
 
-    try:
-        posts_class.get_info()
-    except:
-        print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
-        quit()
+    printer = instantiate_class(post_choice)
+    return printer.print_info(get_count(30))
 
 
 def view_more(post_choice):
@@ -146,11 +132,25 @@ def view_more(post_choice):
         view_posts(to_view)
 
 
-def view_posts(post_choice):
-    """Return requested posts using user's post choice."""
+def check_runtime_error(posts_class):
+    """If HTTP or Beautiful Soup object causes an error, give user error 
+    message and terminate program."""
 
-    printer = instantiate_class(post_choice)
-    return printer.print_info(get_count(30))
+    try:
+        posts_class.get_info()
+    except:
+        print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
+        quit()
+
+
+def confirm_exit(num):
+    """Check if user input is 0 and, if so, ask user if they wish to exit the program."""
+
+    if num == 0:
+        i = validate_choice(
+            "\nDo you want to exit the program? (yes / no):\n", "yes", "no")
+        if i == "yes":
+            quit()
 
 
 def main():
