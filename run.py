@@ -208,9 +208,9 @@ def confirm_exit(num):
     """
 
     if num == 0:
-        i = validate_choice(
+        user_ans = validate_choice(
             "\nDo you want to exit the program? (yes / no):\n", "yes", "no")
-        if i == "yes":
+        if user_ans == "yes":
             quit()
 
 
