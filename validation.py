@@ -34,8 +34,8 @@ def validate_count(user_input, available_posts):
     available_posts: Amount of posts available to be displayed.
 
     Returns:
-    True or False, depending on whether input is valid, or raises exception if 
-    input is not a number. 
+    True or False, depending on whether input is valid, or raises exception if
+    input is not a number.
     """
 
     try:

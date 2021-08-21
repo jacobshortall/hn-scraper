@@ -7,6 +7,13 @@ NEWEST_URL = "https://news.ycombinator.com/newest"
 
 
 class Posts:
+    """
+    Responsible for preparing and organising post data, given a Hacker News URL.
+
+    Args:
+    url: Either the URL for the Hacker News "trending" or "newest" page.
+    """
+
     def __init__(self, url):
         self.url = url
 
@@ -35,6 +42,13 @@ class Posts:
 
 
 class Printer():
+    """
+    Responsible for the handling and printing of post data in the application.
+
+    Args:
+    posts: List of post items from an instance of the Posts class.
+    """
+
     def __init__(self, posts):
         self.posts = posts
 
@@ -64,7 +78,7 @@ class Printer():
         count: Amount of posts the user wishes to see.
 
         Returns:
-        User's requested posts. 
+        User's requested posts.
         """
 
         shown_posts = 0
@@ -200,7 +214,7 @@ def check_runtime_error(posts_class):
 
 def confirm_exit(num):
     """
-    Check if user input is 0 and, if so, ask user if they wish to exit the 
+    Check if user input is 0 and, if so, ask user if they wish to exit the
     program.
 
     Args:
