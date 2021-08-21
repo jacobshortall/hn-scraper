@@ -25,9 +25,3 @@ def validate_count(user_input, available_posts):
         return False
     except ValueError:
         raise
-
-
-def validate_http(trending, newest):
-    """Check HTTP status code of both required links for app to function"""
-
-    return trending.status_code == 200 and newest.status_code == 200
