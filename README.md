@@ -6,6 +6,8 @@ The Hacker News Scraper is a Python terminal application that allows users to vi
 
 This application runs in Code Institute's mock terminal on Heroku.
 
+[Project Live Link](https://hn-python-scraper.herokuapp.com/)
+
 ## User Experience (UX)
 
 ### User Stories:
@@ -102,3 +104,17 @@ Cloning the repository:
 ```
 $ git clone "HTTPS URL"
 ```
+
+## Credits
+
+### Code
+
+-   All code is unique and written by the developer.
+
+### Content
+
+-   All content was written by the developer.
+
+### Acknowledgements
+
+-   Thank you to my mentor for support through the stages of this project.
