@@ -11,8 +11,12 @@ class Posts:
         self.url = url
 
     def get_info(self):
-        """Fetch post data from given HTML and return a list containing a
-        dictionary for each post (30 posts total)."""
+        """
+        Fetch post data from HTML, adding all data into list of dictionaries.
+
+        Returns:
+        List containing a dictionary for each post (30 posts total).
+        """
 
         response = requests.get(self.url)
         html = BeautifulSoup(response.text, "html.parser")
@@ -35,17 +39,33 @@ class Printer():
         self.posts = posts
 
     def request_more(self, available_posts):
-        """Ask user if they want to view more posts and, if so, how many."""
+        """
+        Ask user if they want to view more posts and, if so, how many.
+
+        Args:
+        available_posts: Amount of posts available to be displayed.
+
+        Returns:
+        Amount of posts user wishes to see.
+        """
 
         user_input = validate_choice(
-            "Do you want to see more posts? (yes/no):\n", "yes", "no")
+            "Do you want to see more posts? (yes / no):\n", "yes", "no")
         if user_input == "no":
             return False
         return get_count(available_posts)
 
     def print_info(self, count):
-        """Print initially requested post information to the terminal and ask
-        the user if they want to view more posts using request_more function."""
+        """
+        Print initially requested post information to the terminal and ask
+        the user if they want to view more posts using request_more function.
+
+        Args:
+        count: Amount of posts the user wishes to see.
+
+        Returns:
+        User's requested posts. 
+        """
 
         shown_posts = 0
         to_show = count
@@ -69,8 +89,16 @@ class Printer():
 
 
 def get_count(available_posts):
-    """Ask user how many posts they would like to view. Pass input to
-    validate_count() and return count once validated. If number is 0, ask user if they want to exit program."""
+    """
+    Ask user how many posts they would like to view. Pass input to
+    validate_count() and return count once validated. If number is 0, ask user if they want to exit program.
+
+    Args:
+    available_posts: Amount of posts available to be displayed.
+
+    Returns:
+    Amount of posts the user wishes to see.
+    """
 
     while True:
         user_input = input(
@@ -93,8 +121,15 @@ def get_count(available_posts):
 
 
 def instantiate_class(post_choice):
-    """Return Printer class instantiation using separate instantiation of Posts
-    class. """
+    """
+    Instantiate Posts class & instantiate Printer class using Posts instantiation.
+
+    Args:
+    post_choice: The post type that the user wishes to view.
+
+    Returns:
+    Instantiated Printer class.
+    """
 
     if post_choice == "trending":
         posts = Posts(TRENDING_URL)
@@ -108,14 +143,30 @@ def instantiate_class(post_choice):
 
 
 def view_posts(post_choice):
-    """Return requested posts using user's post choice."""
+    """
+    Return requested posts using user's post choice.
+
+    Args:
+    post_choice: The post type that the user wishes to view.
+
+    Returns:
+    User's requested posts.
+    """
 
     printer = instantiate_class(post_choice)
     return printer.print_info(get_count(30))
 
 
 def view_more(post_choice):
-    """Ask user if they want to view alternate posts to the ones they have already viewed and display them if so."""
+    """
+    Ask user if they want to view alternate posts to the ones they have already viewed and display them if so.
+
+    Args:
+    post_choice: The post type that the user wishes to view.
+
+    Returns:
+    Alternate posts to the ones the user has already viewed.
+    """
 
     if post_choice == "trending":
         to_view = "newest"
@@ -129,8 +180,16 @@ def view_more(post_choice):
 
 
 def check_runtime_error(posts_class):
-    """If HTTP or Beautiful Soup object causes an error, give user error
-    message and terminate program."""
+    """
+    If HTTP or Beautiful Soup object causes an error, give user error
+    message and terminate program.
+
+    Args:
+    posts_class: Instance of Posts class.
+
+    Returns:
+    Prints error message and exits program if exception raised.
+    """
 
     try:
         posts_class.get_info()
@@ -140,7 +199,13 @@ def check_runtime_error(posts_class):
 
 
 def confirm_exit(num):
-    """Check if user input is 0 and, if so, ask user if they wish to exit the program."""
+    """
+    Check if user input is 0 and, if so, ask user if they wish to exit the 
+    program.
+
+    Args:
+    num: User input from get_count().
+    """
 
     if num == 0:
         i = validate_choice(
