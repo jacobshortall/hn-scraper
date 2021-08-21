@@ -52,13 +52,9 @@ class Printer():
 
         while True:
             for i in self.posts[shown_posts: shown_posts + to_show]:
-                print(
-                    f"""
-                    {self.posts.index(i) + 1}) Title: {i["title"]}
-                    Link: {i["link"]}
-                    Posted: {i["age"]}
-                    """
-                )
+                print(f"\n{self.posts.index(i) + 1}) Title: {i['title']}")
+                print(f"Link: {i['link']}")
+                print(f"Posted: {i['age']}\n")
 
             shown_posts += to_show
             if shown_posts == 30:
@@ -97,7 +93,7 @@ def get_count(available_posts):
 
 
 def instantiate_class(post_choice):
-    """Return Printer class instantiation using separate instantiation of Posts 
+    """Return Printer class instantiation using separate instantiation of Posts
     class. """
 
     if post_choice == "trending":
@@ -133,7 +129,7 @@ def view_more(post_choice):
 
 
 def check_runtime_error(posts_class):
-    """If HTTP or Beautiful Soup object causes an error, give user error 
+    """If HTTP or Beautiful Soup object causes an error, give user error
     message and terminate program."""
 
     try:
