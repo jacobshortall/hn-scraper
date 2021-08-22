@@ -1,7 +1,7 @@
+import sys
 import requests
 from bs4 import BeautifulSoup
 from validation import validate_choice, validate_count
-import sys
 
 TRENDING_URL = "https://news.ycombinator.com/news"
 NEWEST_URL = "https://news.ycombinator.com/newest"
