@@ -76,6 +76,10 @@ The get_info() method within this class is responsible for retrieving the post d
 -   [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
     -   Beautiful Soup is a Python module used for scraping data from websites. It was used in this project to parse the data from the GET requests and then to scrape the required information from the parsed data.
 
+## Testing
+
+Find testing information in this separate file: [TESTING.md](TESTING.md)
+
 ## Deployment
 
 This project is deployed to Heroku and uses the Code Institute mock terminal.
