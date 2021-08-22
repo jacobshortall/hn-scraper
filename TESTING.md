@@ -34,3 +34,19 @@ All code was validated using pep8online, with the only remaining error being a "
 -   The user's input should be validated at all stages.
     -   All user input throughout the program is validated to ensure it can be correctly handled at runtime. 
     -   All number inputs are converted to integers, and all strings are converted to lowercase and checked to match the options a user is given.
+
+## Further Testing
+
+-   The application was tested both locally and in the deployed Heroku terminal.
+
+-   Information in the program was compared with live data on Hacker News to ensure all data was recent and correct. 
+
+-   Peers were also asked to test the application for point out existing errors.
+
+## Bugs
+
+-   There are no major remaining bugs in the program. 
+
+-   Line lengths still go over the recommended 80 character limit. This is minor, and really a none-issue in modern terminals. 
+
+-   Printing to the Heroku terminal required a couple of workarounds, as code needed to be committed and pushed just to test this. 
