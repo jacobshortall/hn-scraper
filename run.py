@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from validation import validate_choice, validate_count
+import sys
 
 TRENDING_URL = "https://news.ycombinator.com/news"
 NEWEST_URL = "https://news.ycombinator.com/newest"
@@ -209,7 +210,7 @@ def check_runtime_error(posts_class):
         posts_class.get_info()
     except:
         print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
-        quit()
+        sys.exit()
 
 
 def confirm_exit(num):
@@ -225,7 +226,7 @@ def confirm_exit(num):
         user_ans = validate_choice(
             "\nDo you want to exit the program? (yes / no):\n", "yes", "no")
         if user_ans == "yes":
-            quit()
+            sys.exit()
 
 
 def main():
