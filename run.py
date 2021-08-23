@@ -8,12 +8,7 @@ NEWEST_URL = "https://news.ycombinator.com/newest"
 
 
 class Posts:
-    """
-    Responsible for preparing and organising post data, given a Hacker News URL.
-
-    Args:
-    url: Either the URL for the Hacker News "trending" or "newest" page.
-    """
+    """Responsible for preparing and organising post data, given a Hacker News URL."""
 
     def __init__(self, url):
         self.url = url
@@ -43,12 +38,8 @@ class Posts:
 
 
 class Printer():
-    """
-    Responsible for the handling and printing of post data in the application.
-
-    Args:
-    posts: List of post items from an instance of the Posts class.
-    """
+    """Responsible for the handling and printing of post data in the
+    application."""
 
     def __init__(self, posts):
         self.posts = posts
