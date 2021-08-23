@@ -28,7 +28,7 @@ class Posts:
         html_ages = html.find_all(class_="age")
 
         li = []
-        for i in range(30):
+        for i in range(30):  # 30 is a full page of posts
             di = {}
             di["title"] = html_titles[i].text
             di["link"] = html_titles[i]["href"]
