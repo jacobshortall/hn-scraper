@@ -14,21 +14,27 @@ All code was validated using pep8online, with the only remaining error being a "
 
 -   The user wants to be able to see trending stories.
     -   This application gives the user the option to choose to view trending stories from Hacker News.
+    -   If the user's input is incorrect, they will be asked again until it is correct.
+    -   The user can enter the correct answer in any character case.
     
 ![Trending](readme/trending.JPG)
 
 -   The user wants to be able to see newest stories.
     -   The user is also able to see the most recent stories from Hacker News.
+    -   If the user's input is incorrect, they will be asked again until it is correct.
+    -   The user can enter the correct answer in any character case.
     
 ![Newest](readme/newest.JPG)
 
 -   The user wants to choose how many stories they want to see. 
     -   The user has the ability to instruct the program to view a certain amount of posts at a time. They will then be asked if they would like to view more.
+    -   The user's input will be validated until correct. This will check if the input is a number, and within the range of available posts.
     
 ![Post amount](readme/post-amount.JPG)
 
 -   The user wants to see information on the stories, e.g. title, link and post age.
     -   Details about each post are displayed to the screen after the user has instructed the program how many posts they wish to view.
+    -   If there is a change on how Hacker News display/name these items, it could cause an error. This is handled as a runtime error and will inform the user that there may have been a change to Hacker News.
     
 ![Post details](readme/post-details.JPG)
 
@@ -43,6 +49,8 @@ All code was validated using pep8online, with the only remaining error being a "
 
 ## Further Testing
 
+-   Errors caused from external sources, e.g. Beautiful Soup or Hacker News, are handled in a try/except block that will raise a runtime error for the user. This will explain that it could be an issue with post availability, a change to Hacker News, or something else.
+
 -   The application was tested both locally and in the deployed Heroku terminal.
 
 -   Information in the program was compared with live data on Hacker News to ensure all data was recent and correct. 
@@ -53,6 +61,6 @@ All code was validated using pep8online, with the only remaining error being a "
 
 -   There are no major remaining bugs in the program. 
 
--   Line lengths still go over the recommended 80 character limit. This is minor, and really a none-issue in modern terminals. 
-
 -   Printing to the Heroku terminal required a couple of workarounds, as code needed to be committed and pushed just to test this. 
+
+-   There were potential errors in the program that could be caused by a change to Hacker News. These exceptions are now handled in a runtime error.
