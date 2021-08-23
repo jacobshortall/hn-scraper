@@ -206,6 +206,7 @@ def confirm_exit(num):
         user_ans = validate_choice(
             "\nDo you want to exit the program? (yes / no):\n", "yes", "no")
         if user_ans == "yes":
+            print("\nThank you for using the Hacker News Web Scraper!")
             sys.exit()
 
 
