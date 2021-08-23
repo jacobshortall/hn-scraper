@@ -126,7 +126,7 @@ def get_count(available_posts):
             print("\nPlease enter a number.")
 
 
-def instantiate_class(post_choice):
+def get_posts(post_choice):
     """
     Instantiate Posts class & instantiate Printer class using Posts instantiation.
 
@@ -159,7 +159,7 @@ def view_posts(post_choice):
     User's requested posts.
     """
 
-    printer = instantiate_class(post_choice)
+    printer = get_posts(post_choice)
     return printer.print_info(get_count(30))
 
 
