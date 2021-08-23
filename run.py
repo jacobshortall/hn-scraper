@@ -142,15 +142,14 @@ def get_posts(post_choice):
     else:
         posts = Posts(NEWEST_URL)
 
-    check_runtime_error(posts)
-
     printer = Printer(posts.get_info())
     return printer
 
 
 def view_posts(post_choice):
     """
-    Return requested posts using user's post choice.
+    Return requested posts using user's post choice. Check for bad HTTP request
+    or invalid Beautiful Soup class.
 
     Args:
     post_choice: The post type that the user wishes to view.
@@ -159,7 +158,12 @@ def view_posts(post_choice):
     User's requested posts.
     """
 
-    printer = get_posts(post_choice)
+    try:
+        printer = get_posts(post_choice)
+    except:
+        print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
+        sys.exit()
+
     return printer.print_info(get_count(30))
 
 
@@ -183,25 +187,6 @@ def view_more(post_choice):
         f"\nWould you like to see the {to_view} posts now? (yes / no):\n", "yes", "no")
     if user_input == "yes":
         view_posts(to_view)
-
-
-def check_runtime_error(posts_class):
-    """
-    If HTTP or Beautiful Soup object causes an error, give user error
-    message and terminate program.
-
-    Args:
-    posts_class: Instance of Posts class.
-
-    Returns:
-    Prints error message and exits program if exception raised.
-    """
-
-    try:
-        posts_class.get_info()
-    except:
-        print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
-        sys.exit()
 
 
 def confirm_exit(num):
