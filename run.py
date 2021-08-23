@@ -164,6 +164,7 @@ def view_posts(post_choice):
         printer = get_posts(post_choice)
     except:
         print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
+        print("This error may be caused by a change to Hacker News.")
         sys.exit()
 
     return printer.print_info(get_post_count(30))
