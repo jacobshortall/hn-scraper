@@ -59,7 +59,7 @@ class Printer():
             "Do you want to see more posts? (yes / no):\n", "yes", "no")
         if user_input == "no":
             return False
-        return get_count(available_posts)
+        return get_post_count(available_posts)
 
     def print_info(self, count):
         """
@@ -94,7 +94,7 @@ class Printer():
             to_show = user_ans
 
 
-def get_count(available_posts):
+def get_post_count(available_posts):
     """
     Ask user how many posts they would like to view. Pass input to
     validate_count() and return count once validated. If number is 0, ask user if they want to exit program.
@@ -164,7 +164,7 @@ def view_posts(post_choice):
         print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
         sys.exit()
 
-    return printer.print_info(get_count(30))
+    return printer.print_info(get_post_count(30))
 
 
 def view_more(post_choice):
@@ -195,7 +195,7 @@ def confirm_exit(num):
     program.
 
     Args:
-    num: User input from get_count().
+    num: User input from get_post_count().
     """
 
     if num == 0:
