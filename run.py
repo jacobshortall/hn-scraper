@@ -8,7 +8,8 @@ NEWEST_URL = "https://news.ycombinator.com/newest"
 
 
 class Posts:
-    """Responsible for preparing and organising post data, given a Hacker News URL."""
+    """Responsible for preparing and organising post data, given a Hacker News
+    URL."""
 
     def __init__(self, url):
         self.url = url
@@ -97,7 +98,8 @@ class Printer():
 def get_post_count(available_posts):
     """
     Ask user how many posts they would like to view. Pass input to
-    validate_count() and return count once validated. If number is 0, ask user if they want to exit program.
+    validate_count() and return count once validated. If number is 0, ask user
+    if they want to exit program.
 
     Args:
     available_posts: Amount of posts available to be displayed.
@@ -169,7 +171,8 @@ def view_posts(post_choice):
 
 def view_more(post_choice):
     """
-    Ask user if they want to view alternate posts to the ones they have already viewed and display them if so.
+    Ask user if they want to view alternate posts to the ones they have already
+    viewed and display them if so.
 
     Args:
     post_choice: The post type that the user wishes to view.
