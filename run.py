@@ -25,7 +25,7 @@ class Posts:
         response = requests.get(self.url)
         html = BeautifulSoup(response.text, "html.parser")
 
-        html_titles = html.find_all(class_="storylink")
+        html_titles = html.find_all(class_="titlelink")
         html_ages = html.find_all(class_="age")
 
         li = []
@@ -162,9 +162,10 @@ def view_posts(post_choice):
 
     try:
         printer = get_posts(post_choice)
-    except:
+    except Exception as e:
         print("\nThe program has encountered a runtime error. Please run the program again, or try selecting alternate posts.")
         print("This error may be caused by a change to Hacker News.")
+        print(f"\nerror: '{e}'")
         sys.exit()
 
     return printer.print_info(get_post_count(30))
