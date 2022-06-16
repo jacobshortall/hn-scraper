@@ -27,6 +27,10 @@ class Posts:
 
         html_titles = html.find_all(class_="titlelink")
         html_ages = html.find_all(class_="age")
+        if not html_titles or not html_ages:
+            print(
+                "\nScraping error. Class attribute not present on Hacker News. Please contact a dev.")
+            sys.exit()
 
         li = []
         for i in range(30):  # 30 is a full page of posts
